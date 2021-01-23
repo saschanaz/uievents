@@ -6,7 +6,7 @@
   <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED" rel="stylesheet">
   <meta content="Bikeshed version c5172e83, updated Fri Nov 20 15:35:20 2020 -0800" name="generator">
   <link href="http://www.w3.org/TR/uievents/" rel="canonical">
-  <meta content="278baa8cff8d3043749fd7e76e3fff4fcb648c40" name="document-revision">
+  <meta content="57094acc87f38738905a5a5420d55cd00907184b" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -2042,32 +2042,32 @@ events.</p>
        <td><em>User shifts focus</em>
       <tr>
        <td class="cell-number">1
-       <td><a data-link-type="dfn" href="#focusin" id="ref-for-focusin②"><code>focusin</code></a>
-       <td>Sent before first target element receives focus
-      <tr>
-       <td class="cell-number">2
        <td><a data-link-type="dfn" href="#focus" id="ref-for-focus③"><code>focus</code></a>
        <td>Sent after first target element receives focus
+      <tr>
+       <td class="cell-number">2
+       <td><a data-link-type="dfn" href="#focusin" id="ref-for-focusin②"><code>focusin</code></a>
+       <td>Follows the focus event
       <tr>
        <td class="cell-number">
        <td>
        <td><em>User shifts focus</em>
       <tr>
        <td class="cell-number">3
-       <td><a data-link-type="dfn" href="#focusout" id="ref-for-focusout②"><code>focusout</code></a>
-       <td>Sent before first target element loses focus
-      <tr>
-       <td class="cell-number">4
-       <td><a data-link-type="dfn" href="#focusin" id="ref-for-focusin③"><code>focusin</code></a>
-       <td>Sent before second target element receives focus
-      <tr>
-       <td class="cell-number">5
        <td><a data-link-type="dfn" href="#blur" id="ref-for-blur③"><code>blur</code></a>
        <td>Sent after first target element loses focus
       <tr>
-       <td class="cell-number">6
+       <td class="cell-number">4
+       <td><a data-link-type="dfn" href="#focusout" id="ref-for-focusout②"><code>focusout</code></a>
+       <td>Follows the blur event
+      <tr>
+       <td class="cell-number">5
        <td><a data-link-type="dfn" href="#focus" id="ref-for-focus④"><code>focus</code></a>
        <td>Sent after second target element receives focus
+      <tr>
+       <td class="cell-number">6
+       <td><a data-link-type="dfn" href="#focusin" id="ref-for-focusin③"><code>focusin</code></a>
+       <td>Follows the focus event
     </table>
     <p class="note" role="note"> This specification does not define the behavior of focus events when
 		interacting with methods such as <code>focus()</code> or <code>blur()</code>. See the relevant specifications where those methods
@@ -2186,9 +2186,8 @@ document.</p>
     </table>
     <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent①③">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target①③">event
 			target</a> loses focus. The focus MUST be taken from the element
-			before the dispatch of this event type.  This event type is similar
-			to <a data-link-type="dfn" href="#focusout" id="ref-for-focusout③"><code>focusout</code></a>, but is dispatched after focus is shifted, and
-			does not bubble.</p>
+			before the dispatch of this event type. This event type is similar
+			to <a data-link-type="dfn" href="#focusout" id="ref-for-focusout③">focusout</a>, but does not bubble.</p>
     <h5 class="heading settled" data-level="5.2.4.2" id="event-type-focus"><span class="secno">5.2.4.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="focus">focus</dfn></span><a class="self-link" href="#event-type-focus"></a></h5>
     <div class="mdn-anno wrapped after">
      <button class="mdn-anno-btn"><b class="all-engines-flag" title="This feature is in all current engines.">✔</b><span>MDN</span></button>
@@ -2257,9 +2256,8 @@ document.</p>
     </table>
     <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent①④">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target①⑥">event
 			target</a> receives focus. The focus MUST be given to the element
-			before the dispatch of this event type.  This event type is similar
-			to <a data-link-type="dfn" href="#focusin" id="ref-for-focusin④"><code>focusin</code></a>, but is dispatched after focus is shifted, and
-			does not bubble.</p>
+			before the dispatch of this event type. This event type is similar
+			to <a data-link-type="dfn" href="#focusin" id="ref-for-focusin④">focusin</a>, but does not bubble.</p>
     <h5 class="heading settled" data-level="5.2.4.3" id="event-type-focusin"><span class="secno">5.2.4.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="focusin">focusin</dfn></span><a class="self-link" href="#event-type-focusin"></a></h5>
     <div class="mdn-anno wrapped after">
      <button class="mdn-anno-btn"><b class="all-engines-flag" title="This feature is in all current engines.">✔</b><span>MDN</span></button>
@@ -2313,18 +2311,10 @@ document.</p>
          <li><code class="idl"><a data-link-type="idl" href="#focusevent" id="ref-for-focusevent①①">FocusEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-focusevent-relatedtarget" id="ref-for-dom-focusevent-relatedtarget②">relatedTarget</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target①⑧">event target</a> losing focus (if any).
         </ul>
     </table>
-    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent①⑤">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target①⑨">event
-			target</a> is about to receive focus. This event type MUST be
-			dispatched before the element is given focus.  The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⓪">event
-			target</a> MUST be the element which is about to receive focus.
-			This event type is similar to <a data-link-type="dfn" href="#focus" id="ref-for-focus⑥"><code>focus</code></a>, but is dispatched
-			before focus is shifted, and does bubble.</p>
-    <p class="note" role="note"> When using this event type, the content author can use the event’s <code class="idl"><a data-link-type="idl" href="#dom-focusevent-relatedtarget" id="ref-for-dom-focusevent-relatedtarget③">relatedTarget</a></code> attribute (or a host-language-specific
-			method or means) to get the currently focused element before the
-			focus shifts to the next focus <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②①">event target</a>, thus having
-			access to both the element losing focus and the element gaining
-			focus without the use of the <a data-link-type="dfn" href="#blur" id="ref-for-blur④"><code>blur</code></a> or <a data-link-type="dfn" href="#focusout" id="ref-for-focusout④"><code>focusout</code></a> event
-			types. </p>
+    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent①⑤">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target①⑨">event target</a> receives focus. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⓪">event target</a> MUST be the element which
+			received focus. The <a data-link-type="dfn" href="#focus" id="ref-for-focus⑥">focus</a> event MUST fire before the dispatch of
+			this event type. This event type is similar to <a data-link-type="dfn" href="#focus" id="ref-for-focus⑦">focus</a>, but does
+			not bubble.</p>
     <h5 class="heading settled" data-level="5.2.4.4" id="event-type-focusout"><span class="secno">5.2.4.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="focusout">focusout</dfn></span><a class="self-link" href="#event-type-focusout"></a></h5>
     <div class="mdn-anno wrapped after">
      <button class="mdn-anno-btn"><b class="all-engines-flag" title="This feature is in all current engines.">✔</b><span>MDN</span></button>
@@ -2372,17 +2362,15 @@ document.</p>
        <th>Context<br> (trusted events)
        <td>
         <ul>
-         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event②⑨">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target⑨">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②②">event target</a> losing focus
+         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event②⑨">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target⑨">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②①">event target</a> losing focus
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent②⑥">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-view" id="ref-for-dom-uievent-view⑧">view</a></code> : <a data-link-type="dfn" href="#window" id="ref-for-window③⓪"><code>Window</code></a>
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent②⑦">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-detail" id="ref-for-dom-uievent-detail⑧">detail</a></code> : <code>0</code>
-         <li><code class="idl"><a data-link-type="idl" href="#focusevent" id="ref-for-focusevent①③">FocusEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-focusevent-relatedtarget" id="ref-for-dom-focusevent-relatedtarget④">relatedTarget</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②③">event target</a> receiving focus.
+         <li><code class="idl"><a data-link-type="idl" href="#focusevent" id="ref-for-focusevent①③">FocusEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-focusevent-relatedtarget" id="ref-for-dom-focusevent-relatedtarget③">relatedTarget</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②②">event target</a> receiving focus.
         </ul>
     </table>
-    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent①⑥">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②④">event
-			target</a> is about to lose focus. This event type MUST be
-			dispatched before the element loses focus.  The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑤">event target</a> MUST be the element which is about to lose focus.  This event type
-			is similar to <a data-link-type="dfn" href="#blur" id="ref-for-blur⑤"><code>blur</code></a>, but is dispatched before focus is
-			shifted, and does bubble.</p>
+    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent①⑥">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②③">event target</a> loses focus. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②④">event target</a> MUST be the element which lost
+			focus. The <a data-link-type="dfn" href="#blur" id="ref-for-blur④">blur</a> event MUST fire before the dispatch of this event
+			type. This event type is similar to <a data-link-type="dfn" href="#blur" id="ref-for-blur⑤">blur</a>, but does not bubble.</p>
     <h3 class="heading settled" data-level="5.3" id="events-mouseevents"><span class="secno">5.3. </span><span class="content">Mouse Events</span><a class="self-link" href="#events-mouseevents"></a></h3>
     <p>The mouse event module originates from the <a data-link-type="biblio" href="#biblio-html401">[HTML401]</a> <code>onclick</code>, <code>ondblclick</code>, <code>onmousedown</code>, <code>onmouseup</code>, <code>onmouseover</code>, <code>onmousemove</code>, and <code>onmouseout</code> attributes. This event module is specifically
 	designed for use with pointing input devices, such as a mouse or a trackball.</p>
@@ -3039,7 +3027,7 @@ used to activate a user interface control or select text).</p>
 		the <a data-link-type="dfn" href="#root-element" id="ref-for-root-element">root element</a>, then the <a data-link-type="dfn" href="#click" id="ref-for-click①⓪"><code>click</code></a> event will be dispatched
 		to the <a data-link-type="dfn" href="#root-element" id="ref-for-root-element①">root element</a>, since it is the nearest common inclusive
 		ancestor. </p>
-    <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑥">event target</a> (e.g. the target element) is removed from the
+    <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑤">event target</a> (e.g. the target element) is removed from the
 		DOM during the mouse events sequence, the remaining events of the
 		sequence MUST NOT be fired on that element.</p>
     <p class="example" id="example-e63d913f"><a class="self-link" href="#example-e63d913f"></a> If the target element is removed from the DOM as the result of a <a data-link-type="dfn" href="#mousedown" id="ref-for-mousedown①②"><code>mousedown</code></a> event, no events for that element will be dispatched
@@ -3146,10 +3134,10 @@ used to activate a user interface control or select text).</p>
 			if one or more of the event types <a data-link-type="dfn" href="#mouseover" id="ref-for-mouseover⑦"><code>mouseover</code></a>, <a data-link-type="dfn" href="#mousemove" id="ref-for-mousemove①⑧"><code>mousemove</code></a>, and <a data-link-type="dfn" href="#mouseout" id="ref-for-mouseout⑧"><code>mouseout</code></a> occur between the press and
 			release of the pointing device button.</p>
     <p>The <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①③">default action</a> of the <a data-link-type="dfn" href="#auxclick" id="ref-for-auxclick⑤"><code>auxclick</code></a> event type varies
-			based on the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑦">event target</a> of the event and the value of the <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button⑨">button</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons①⓪">buttons</a></code> attributes. Typical <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①④">default actions</a> of the <a data-link-type="dfn" href="#auxclick" id="ref-for-auxclick⑥"><code>auxclick</code></a> event type are as follows:</p>
+			based on the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑥">event target</a> of the event and the value of the <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button⑨">button</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons①⓪">buttons</a></code> attributes. Typical <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①④">default actions</a> of the <a data-link-type="dfn" href="#auxclick" id="ref-for-auxclick⑥"><code>auxclick</code></a> event type are as follows:</p>
     <ul>
      <li data-md>
-      <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑧">event target</a> has associated activation behavior,
+      <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑦">event target</a> has associated activation behavior,
 the <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①⑤">default action</a> MUST be to execute that activation
 behavior (see <a href="#event-flow-activation">§ 3.5 Activation triggers and behavior</a>).</p>
     </ul>
@@ -3279,14 +3267,14 @@ myDiv.addEventListener("auxclick", function(e) {
 			extended it beyond that association, and it can be considered a
 			device-independent event type for element activation. </p>
     <p>The <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①⑥">default action</a> of the <a data-link-type="dfn" href="#click" id="ref-for-click②⑤"><code>click</code></a> event type varies
-			based on the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑨">event target</a> of the event and the value of the <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button①②">button</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons①③">buttons</a></code> attributes. Typical <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①⑦">default actions</a> of the <a data-link-type="dfn" href="#click" id="ref-for-click②⑥"><code>click</code></a> event type are as follows:</p>
+			based on the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑧">event target</a> of the event and the value of the <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button①②">button</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons①③">buttons</a></code> attributes. Typical <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①⑦">default actions</a> of the <a data-link-type="dfn" href="#click" id="ref-for-click②⑥"><code>click</code></a> event type are as follows:</p>
     <ul>
      <li data-md>
-      <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⓪">event target</a> has associated activation behavior,
+      <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target②⑨">event target</a> has associated activation behavior,
 the <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①⑧">default action</a> MUST be to execute that activation
 behavior (see <a href="#event-flow-activation">§ 3.5 Activation triggers and behavior</a>).</p>
      <li data-md>
-      <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③①">event target</a> is focusable, the <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①⑨">default
+      <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⓪">event target</a> is focusable, the <a data-link-type="dfn" href="#default-action" id="ref-for-default-action①⑨">default
 action</a> MUST be to give that element document focus.</p>
     </ul>
     <h5 class="heading settled" data-level="5.3.4.3" id="event-type-dblclick"><span class="secno">5.3.4.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="dblclick">dblclick</dfn></span><a class="self-link" href="#event-type-dblclick"></a></h5>
@@ -3363,13 +3351,13 @@ action</a> MUST be to give that element document focus.</p>
 			NOT fire <a data-link-type="dfn" href="#dblclick" id="ref-for-dblclick⑨"><code>dblclick</code></a> events.</p>
     <p class="note" role="note"> Canceling the <a data-link-type="dfn" href="#click" id="ref-for-click②⑨"><code>click</code></a> event does not affect the firing of a <a data-link-type="dfn" href="#dblclick" id="ref-for-dblclick①⓪"><code>dblclick</code></a> event. </p>
     <p>As with the <a data-link-type="dfn" href="#click" id="ref-for-click③⓪"><code>click</code></a> event type, the <a data-link-type="dfn" href="#default-action" id="ref-for-default-action②⓪">default action</a> of
-			the <a data-link-type="dfn" href="#dblclick" id="ref-for-dblclick①①"><code>dblclick</code></a> event type varies based on the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③②">event
+			the <a data-link-type="dfn" href="#dblclick" id="ref-for-dblclick①①"><code>dblclick</code></a> event type varies based on the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③①">event
 			target</a> of the event and the value of the <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button①④">button</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons①⑤">buttons</a></code> attributes. Normally, the typical <a data-link-type="dfn" href="#default-action" id="ref-for-default-action②①">default actions</a> of the <a data-link-type="dfn" href="#dblclick" id="ref-for-dblclick①②"><code>dblclick</code></a> event type match those
 			of the <a data-link-type="dfn" href="#click" id="ref-for-click③①"><code>click</code></a> event type, with the following additional
 			behavior:</p>
     <ul>
      <li data-md>
-      <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③③">event target</a> is selectable, the <a data-link-type="dfn" href="#default-action" id="ref-for-default-action②②">default
+      <p>If the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③②">event target</a> is selectable, the <a data-link-type="dfn" href="#default-action" id="ref-for-default-action②②">default
 action</a> MUST be to select part or all of the selectable
 content. Subsequent clicks MAY select additional selectable
 portions of that content.</p>
@@ -3507,7 +3495,7 @@ portions of that content.</p>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑧④">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-metakey" id="ref-for-dom-mouseevent-metakey⑤">metaKey</a></code> : <code>true</code> if <code class="keycap">Meta</code> modifier was active, otherwise <code>false</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑧⑤">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button①⑥">button</a></code> : <code>0</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑧⑥">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons①⑦">buttons</a></code> : value based on all buttons currently depressed, <code>0</code> if no buttons pressed
-         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑧⑦">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget⑤">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③④">event target</a> a pointing device is exiting, if any.
+         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑧⑦">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget⑤">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③③">event target</a> a pointing device is exiting, if any.
         </ul>
     </table>
     <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent①⑨">user agent</a> MUST dispatch this event when a pointing device
@@ -3580,7 +3568,7 @@ portions of that content.</p>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑨⑥">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-metakey" id="ref-for-dom-mouseevent-metakey⑥">metaKey</a></code> : <code>true</code> if <code class="keycap">Meta</code> modifier was active, otherwise <code>false</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑨⑦">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button①⑦">button</a></code> : <code>0</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑨⑧">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons①⑧">buttons</a></code> : value based on all buttons currently depressed, <code>0</code> if no buttons pressed
-         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑨⑨">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget⑥">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑤">event target</a> a pointing device is exiting, if any.
+         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent⑨⑨">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget⑥">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③④">event target</a> a pointing device is exiting, if any.
         </ul>
     </table>
     <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent②①">user agent</a> MUST dispatch this event when a pointing device
@@ -3730,7 +3718,7 @@ portions of that content.</p>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①②⓪">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-metakey" id="ref-for-dom-mouseevent-metakey⑧">metaKey</a></code> : <code>true</code> if <code class="keycap">Meta</code> modifier was active, otherwise <code>false</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①②①">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button①⑨">button</a></code> : <code>0</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①②②">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons②⓪">buttons</a></code> : value based on all buttons currently depressed, <code>0</code> if no buttons pressed
-         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①②③">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget⑧">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑥">event target</a> a pointing device is entering, if any.
+         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①②③">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget⑧">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑤">event target</a> a pointing device is entering, if any.
         </ul>
     </table>
     <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent②④">user agent</a> MUST dispatch this event when a pointing device
@@ -3800,7 +3788,7 @@ portions of that content.</p>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①③②">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-metakey" id="ref-for-dom-mouseevent-metakey⑨">metaKey</a></code> : <code>true</code> if <code class="keycap">Meta</code> modifier was active, otherwise <code>false</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①③③">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button②⓪">button</a></code> : <code>0</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①③④">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons②①">buttons</a></code> : value based on all buttons currently depressed, <code>0</code> if no buttons pressed
-         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①③⑤">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget⑨">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑦">event target</a> a pointing device is entering, if any.
+         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①③⑤">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget⑨">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑥">event target</a> a pointing device is entering, if any.
         </ul>
     </table>
     <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent②⑤">user agent</a> MUST dispatch this event when a pointing device
@@ -3808,7 +3796,7 @@ portions of that content.</p>
 			moved to be underneath the primary pointing device.
 			This event type is similar to <a data-link-type="dfn" href="#mouseenter" id="ref-for-mouseenter⑨"><code>mouseenter</code></a>, but differs in
 			that it bubbles, and that it MUST be dispatched when the pointer device moves onto the
-			boundaries of an element whose ancestor element is the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑧">event
+			boundaries of an element whose ancestor element is the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑦">event
 			target</a> for the same <a data-link-type="dfn" href="#event-listener" id="ref-for-event-listener⑥">event listener</a> instance.</p>
     <p class="note" role="note"> See also the <a data-link-type="dfn" href="#mouseout" id="ref-for-mouseout①①"><code>mouseout</code></a> event type. </p>
     <h5 class="heading settled" data-level="5.3.4.10" id="event-type-mouseup"><span class="secno">5.3.4.10. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="mouseup">mouseup</dfn></span><a class="self-link" href="#event-type-mouseup"></a></h5>
@@ -4102,7 +4090,7 @@ portions of that content.</p>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①⑤⑥">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-metakey" id="ref-for-dom-mouseevent-metakey①①">metaKey</a></code> : <code>true</code> if <code class="keycap">Meta</code> modifier was active, otherwise <code>false</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①⑤⑦">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-button" id="ref-for-dom-mouseevent-button②②">button</a></code> : if wheel is associated with a pointing device, value based on current button pressed, otherwise <code>0</code>
          <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①⑤⑧">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-buttons" id="ref-for-dom-mouseevent-buttons②③">buttons</a></code> : if wheel is associated with a pointing device, value based on all buttons current depressed, <code>0</code> if no buttons pressed
-         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①⑤⑨">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget①①">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑨">event target</a> the pointing device is pointing at, if any
+         <li><code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①⑤⑨">MouseEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-mouseevent-relatedtarget" id="ref-for-dom-mouseevent-relatedtarget①①">relatedTarget</a></code> : indicates the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑧">event target</a> the pointing device is pointing at, if any
          <li><code class="idl"><a data-link-type="idl" href="#wheelevent" id="ref-for-wheelevent⑧">WheelEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-wheelevent-deltax" id="ref-for-dom-wheelevent-deltax②">deltaX</a></code> : expected amount that the page will scroll along the x-axis according to the deltaMode units; or an implemenation-specific value of movement of a wheel around the x-axis
          <li><code class="idl"><a data-link-type="idl" href="#wheelevent" id="ref-for-wheelevent⑨">WheelEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-wheelevent-deltay" id="ref-for-dom-wheelevent-deltay②">deltaY</a></code> : expected amount that the page will scroll along the y-axis according to the deltaMode units; or an implemenation-specific value of movement of a wheel around the y-axis
          <li><code class="idl"><a data-link-type="idl" href="#wheelevent" id="ref-for-wheelevent①⓪">WheelEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-wheelevent-deltaz" id="ref-for-dom-wheelevent-deltaz②">deltaZ</a></code> : expected amount that the page will scroll along the z-axis according to the deltaMode units; or an implemenation-specific value of movement of a wheel around the z-axis
@@ -4287,7 +4275,7 @@ portions of that content.</p>
        <th>Context<br> (trusted events)
        <td>
         <ul>
-         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event④①">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target②①">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⓪">event target</a> that is about to be updated
+         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event④①">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target②①">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target③⑨">event target</a> that is about to be updated
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑤②">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-view" id="ref-for-dom-uievent-view②⓪">view</a></code> : <a data-link-type="dfn" href="#window" id="ref-for-window④②"><code>Window</code></a>
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑤③">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-detail" id="ref-for-dom-uievent-detail②①">detail</a></code> : <code>0</code>
          <li><code class="idl"><a data-link-type="idl" href="#inputevent" id="ref-for-inputevent③">InputEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-inputevent-data" id="ref-for-dom-inputevent-data①">data</a></code> : the string containing the data that will be added to the element, which MAY be <code>null</code> if the content will be deleted
@@ -4327,7 +4315,7 @@ portions of that content.</p>
        <th>Context<br> (trusted events)
        <td>
         <ul>
-         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event④②">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target②②">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④①">event target</a> that was just updated
+         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event④②">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target②②">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⓪">event target</a> that was just updated
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑤④">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-view" id="ref-for-dom-uievent-view②①">view</a></code> : <a data-link-type="dfn" href="#window" id="ref-for-window④③"><code>Window</code></a>
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑤⑤">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-detail" id="ref-for-dom-uievent-detail②②">detail</a></code> : <code>0</code>
          <li><code class="idl"><a data-link-type="idl" href="#inputevent" id="ref-for-inputevent⑥">InputEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-inputevent-data" id="ref-for-dom-inputevent-data②">data</a></code> : the string containing the data that has been added to the element, which MAY be the <a data-link-type="dfn" href="#empty-string" id="ref-for-empty-string①">empty string</a> if the content has been deleted
@@ -4730,16 +4718,16 @@ portions of that content.</p>
 		are completed before the <a data-link-type="dfn" href="#keyup" id="ref-for-keyup②"><code>keyup</code></a> event is dispatched. This might
 		delay the <a data-link-type="dfn" href="#keyup" id="ref-for-keyup③"><code>keyup</code></a> event slightly (though this is not likely to be a
 		perceptible delay). </p>
-    <p>The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④②">event target</a> of a key event is the currently focused element
+    <p>The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④①">event target</a> of a key event is the currently focused element
 		which is processing the keyboard activity. This is often an HTML <code>input</code> element or a textual element which is editable, but
 		MAY be an element defined by the <a data-link-type="dfn" href="#host-language" id="ref-for-host-language⑦">host language</a> to accept keyboard
 		input for non-text purposes, such as the activation of an accelerator
 		key or trigger of some other behavior. If no suitable element is in
 		focus, the event target will be the HTML <a data-link-type="dfn" href="#body-element" id="ref-for-body-element①">body element</a> if
 		available, otherwise the <a data-link-type="dfn" href="#root-element" id="ref-for-root-element②">root element</a>.</p>
-    <p class="note" role="note"> The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④③">event target</a> might change between different key events. For
+    <p class="note" role="note"> The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④②">event target</a> might change between different key events. For
 		example, a <a data-link-type="dfn" href="#keydown" id="ref-for-keydown⑤"><code>keydown</code></a> event for the <code class="keycap">Tab</code> key will likely have
-		a different <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④④">event target</a> than the <a data-link-type="dfn" href="#keyup" id="ref-for-keyup④"><code>keyup</code></a> event on the same
+		a different <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④③">event target</a> than the <a data-link-type="dfn" href="#keyup" id="ref-for-keyup④"><code>keyup</code></a> event on the same
 		keystroke. </p>
     <h4 class="heading settled" data-level="5.6.4" id="events-keyboard-types"><span class="secno">5.6.4. </span><span class="content">Keyboard Event Types</span><a class="self-link" href="#events-keyboard-types"></a></h4>
     <h5 class="heading settled" data-level="5.6.4.1" id="event-type-keydown"><span class="secno">5.6.4.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="keydown">keydown</dfn></span><a class="self-link" href="#event-type-keydown"></a></h5>
@@ -4796,7 +4784,7 @@ portions of that content.</p>
        <td>Yes
       <tr>
        <th>Default action
-       <td>Varies: <a data-link-type="dfn" href="#beforeinput" id="ref-for-beforeinput⑥"><code>beforeinput</code></a> and <a data-link-type="dfn" href="#input" id="ref-for-input⑥"><code>input</code></a> events; launch <a data-link-type="dfn" href="#text-composition-system" id="ref-for-text-composition-system②">text composition system</a>; <a data-link-type="dfn" href="#blur" id="ref-for-blur⑥"><code>blur</code></a> and <a data-link-type="dfn" href="#focus" id="ref-for-focus⑦"><code>focus</code></a> events; <a data-link-type="dfn" href="#keypress" id="ref-for-keypress①"><code>keypress</code></a> event (if supported); <a data-link-type="dfn" href="#activation-behavior" id="ref-for-activation-behavior④">activation behavior</a>; other event
+       <td>Varies: <a data-link-type="dfn" href="#beforeinput" id="ref-for-beforeinput⑥"><code>beforeinput</code></a> and <a data-link-type="dfn" href="#input" id="ref-for-input⑥"><code>input</code></a> events; launch <a data-link-type="dfn" href="#text-composition-system" id="ref-for-text-composition-system②">text composition system</a>; <a data-link-type="dfn" href="#blur" id="ref-for-blur⑥"><code>blur</code></a> and <a data-link-type="dfn" href="#focus" id="ref-for-focus⑧"><code>focus</code></a> events; <a data-link-type="dfn" href="#keypress" id="ref-for-keypress①"><code>keypress</code></a> event (if supported); <a data-link-type="dfn" href="#activation-behavior" id="ref-for-activation-behavior④">activation behavior</a>; other event
       <tr>
        <th>Context<br> (trusted events)
        <td>
@@ -7476,7 +7464,7 @@ completeness.</p>
        <td style="text-align:center"><code class="idl"><a data-link-type="idl" href="#keyboardevent" id="ref-for-keyboardevent⑧⑥">KeyboardEvent</a></code>
        <td style="text-align:center">Yes
        <td style="text-align:center">Yes
-       <td>Varies: launch <a data-link-type="dfn" href="#text-composition-system" id="ref-for-text-composition-system①⑥">text composition system</a>; <a data-link-type="dfn" href="#blur" id="ref-for-blur⑦"><code>blur</code></a> and <a data-link-type="dfn" href="#focus" id="ref-for-focus⑧"><code>focus</code></a> events; <a data-link-type="dfn" href="#domactivate" id="ref-for-domactivate②"><code>DOMActivate</code></a> event; other event
+       <td>Varies: launch <a data-link-type="dfn" href="#text-composition-system" id="ref-for-text-composition-system①⑥">text composition system</a>; <a data-link-type="dfn" href="#blur" id="ref-for-blur⑦"><code>blur</code></a> and <a data-link-type="dfn" href="#focus" id="ref-for-focus⑨"><code>focus</code></a> events; <a data-link-type="dfn" href="#domactivate" id="ref-for-domactivate②"><code>DOMActivate</code></a> event; other event
     </table>
     <h3 class="heading settled" data-level="9.1" id="legacy-uievent-events"><span class="secno">9.1. </span><span class="content">Legacy <code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑦⑨">UIEvent</a></code> events</span><a class="self-link" href="#legacy-uievent-events"></a></h3>
     <h4 class="heading settled" data-level="9.1.1" id="legacy-uievent-event-types"><span class="secno">9.1.1. </span><span class="content">Legacy <code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑧⓪">UIEvent</a></code> event types</span><a class="self-link" href="#legacy-uievent-event-types"></a></h4>
@@ -7544,7 +7532,7 @@ completeness.</p>
      <p> Thus, when a <a data-link-type="dfn" href="#click" id="ref-for-click③⑧"><code>click</code></a> event is dispatched by a <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent④⑧">user agent</a> conforming to UI Events, the XForms <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent④⑨">user agent</a> has to determine
 		whether to synthesize a <a data-link-type="dfn" href="#domactivate" id="ref-for-domactivate①②"><code>DOMActivate</code></a> event with the same relevant
 		properties as a <a data-link-type="dfn" href="#default-action" id="ref-for-default-action③⑥">default action</a> of that <a data-link-type="dfn" href="#click" id="ref-for-click③⑨"><code>click</code></a> event.
-		Appropriate cues might be whether the <a data-link-type="dfn" href="#click" id="ref-for-click④⓪"><code>click</code></a> event is <a href="#trusted-events">trusted</a>, or whether its <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑤">event target</a> has a <a data-link-type="dfn" href="#domactivate" id="ref-for-domactivate①③"><code>DOMActivate</code></a> <a data-link-type="dfn" href="#event-listener" id="ref-for-event-listener⑦">event listener</a> registered. </p>
+		Appropriate cues might be whether the <a data-link-type="dfn" href="#click" id="ref-for-click④⓪"><code>click</code></a> event is <a href="#trusted-events">trusted</a>, or whether its <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④④">event target</a> has a <a data-link-type="dfn" href="#domactivate" id="ref-for-domactivate①③"><code>DOMActivate</code></a> <a data-link-type="dfn" href="#event-listener" id="ref-for-event-listener⑦">event listener</a> registered. </p>
     </div>
     <p class="note" role="note"> Don’t rely upon the interoperable support of <a data-link-type="dfn" href="#domactivate" id="ref-for-domactivate①④"><code>DOMActivate</code></a> in many <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑤⓪">user agents</a>. Instead, the <a data-link-type="dfn" href="#click" id="ref-for-click④①"><code>click</code></a> <a data-link-type="dfn" href="#event-type" id="ref-for-event-type②③">event type</a> should
 		be used since it will provide more accessible behavior due to broader
@@ -7632,20 +7620,20 @@ completeness.</p>
        <th>Context<br>(trusted events)
        <td>
         <ul>
-         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event⑤⓪">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target②⑨">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑥">event target</a> receiving focus
+         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event⑤⓪">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target②⑨">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑤">event target</a> receiving focus
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑧④">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-view" id="ref-for-dom-uievent-view③③">view</a></code> : <a data-link-type="dfn" href="#window" id="ref-for-window⑤④"><code>Window</code></a>
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑧⑤">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-detail" id="ref-for-dom-uievent-detail③④">detail</a></code> : <code>0</code>
-         <li><code class="idl"><a data-link-type="idl" href="#focusevent" id="ref-for-focusevent①⑨">FocusEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-focusevent-relatedtarget" id="ref-for-dom-focusevent-relatedtarget⑤">relatedTarget</a></code> : <code>null</code>
+         <li><code class="idl"><a data-link-type="idl" href="#focusevent" id="ref-for-focusevent①⑨">FocusEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-focusevent-relatedtarget" id="ref-for-dom-focusevent-relatedtarget④">relatedTarget</a></code> : <code>null</code>
         </ul>
     </table>
-    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑤④">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑦">event
+    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑤④">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑥">event
 			target</a> receives focus. The focus MUST be given to the
 			element before the dispatch of this event type. This event type
-			MUST be dispatched after the event type <a data-link-type="dfn" href="#focus" id="ref-for-focus⑨"><code>focus</code></a>.</p>
+			MUST be dispatched after the event type <a data-link-type="dfn" href="#focus" id="ref-for-focus①⓪"><code>focus</code></a>.</p>
     <p class="warning"> The <a data-link-type="dfn" href="#domfocusin" id="ref-for-domfocusin①"><code>DOMFocusIn</code></a> event type is defined in this
 			specification for reference and completeness, but this
 			specification <a data-link-type="dfn" href="#deprecates" id="ref-for-deprecates⑥">deprecates</a> the use of this event type in
-			favor of the related event types <a data-link-type="dfn" href="#focus" id="ref-for-focus①⓪"><code>focus</code></a> and <a data-link-type="dfn" href="#focusin" id="ref-for-focusin⑤"><code>focusin</code></a>. </p>
+			favor of the related event types <a data-link-type="dfn" href="#focus" id="ref-for-focus①①"><code>focus</code></a> and <a data-link-type="dfn" href="#focusin" id="ref-for-focusin⑤"><code>focusin</code></a>. </p>
     <h5 class="heading settled" data-level="9.2.1.2" id="event-type-DOMFocusOut"><span class="secno">9.2.1.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="domfocusout">DOMFocusOut</dfn></span><a class="self-link" href="#event-type-DOMFocusOut"></a></h5>
     <table class="event-definition">
      <tbody>
@@ -7677,20 +7665,20 @@ completeness.</p>
        <th>Context<br>(trusted events)
        <td>
         <ul>
-         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event⑤①">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target③⓪">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑧">event target</a> losing focus
+         <li><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#event" id="ref-for-event⑤①">Event</a></code>.<code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-target" id="ref-for-dom-event-target③⓪">target</a></code> : <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑦">event target</a> losing focus
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑧⑥">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-view" id="ref-for-dom-uievent-view③④">view</a></code> : <a data-link-type="dfn" href="#window" id="ref-for-window⑤⑥"><code>Window</code></a>
          <li><code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑧⑦">UIEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-uievent-detail" id="ref-for-dom-uievent-detail③⑤">detail</a></code> : <code>0</code>
-         <li><code class="idl"><a data-link-type="idl" href="#focusevent" id="ref-for-focusevent②①">FocusEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-focusevent-relatedtarget" id="ref-for-dom-focusevent-relatedtarget⑥">relatedTarget</a></code> : <code>null</code>
+         <li><code class="idl"><a data-link-type="idl" href="#focusevent" id="ref-for-focusevent②①">FocusEvent</a></code>.<code class="idl"><a data-link-type="idl" href="#dom-focusevent-relatedtarget" id="ref-for-dom-focusevent-relatedtarget⑤">relatedTarget</a></code> : <code>null</code>
         </ul>
     </table>
-    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑤⑤">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑨">event
+    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑤⑤">user agent</a> MUST dispatch this event when an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑧">event
 			target</a> loses focus. The focus MUST be taken from the element
 			before the dispatch of this event type. This event type MUST be
 			dispatched after the event type <a data-link-type="dfn" href="#blur" id="ref-for-blur⑧"><code>blur</code></a>.</p>
     <p class="warning"> The <a data-link-type="dfn" href="#domfocusout" id="ref-for-domfocusout①"><code>DOMFocusOut</code></a> event type is defined in this
 			specification for reference and completeness, but this
 			specification <a data-link-type="dfn" href="#deprecates" id="ref-for-deprecates⑦">deprecates</a> the use of this event type in
-			favor of the related event types <a data-link-type="dfn" href="#blur" id="ref-for-blur⑨"><code>blur</code></a> and <a data-link-type="dfn" href="#focusout" id="ref-for-focusout⑤"><code>focusout</code></a>. </p>
+			favor of the related event types <a data-link-type="dfn" href="#blur" id="ref-for-blur⑨"><code>blur</code></a> and <a data-link-type="dfn" href="#focusout" id="ref-for-focusout④"><code>focusout</code></a>. </p>
     <h4 class="heading settled" data-level="9.2.2" id="legacy-focusevent-event-order"><span class="secno">9.2.2. </span><span class="content">Legacy FocusEvent event order</span><a class="self-link" href="#legacy-focusevent-event-order"></a></h4>
     <p>The following is the typical sequence of events when a focus is shifted
 		between elements, including the deprecated <a data-link-type="dfn" href="#domfocusin" id="ref-for-domfocusin②"><code>DOMFocusIn</code></a> and <a data-link-type="dfn" href="#domfocusout" id="ref-for-domfocusout②"><code>DOMFocusOut</code></a> events. The order shown assumes that no element is
@@ -7711,7 +7699,7 @@ completeness.</p>
        <td>Sent before first target element receives focus
       <tr>
        <td class="cell-number">2
-       <td><a data-link-type="dfn" href="#focus" id="ref-for-focus①①"><code>focus</code></a>
+       <td><a data-link-type="dfn" href="#focus" id="ref-for-focus①②"><code>focus</code></a>
        <td>Sent after first target element receives focus
       <tr>
        <td class="cell-number">3
@@ -7723,7 +7711,7 @@ completeness.</p>
        <td><em>User shifts focus</em>
       <tr>
        <td class="cell-number">4
-       <td><a data-link-type="dfn" href="#focusout" id="ref-for-focusout⑥"><code>focusout</code></a>
+       <td><a data-link-type="dfn" href="#focusout" id="ref-for-focusout⑤"><code>focusout</code></a>
        <td>Sent before first target element loses focus
       <tr>
        <td class="cell-number">5
@@ -7739,7 +7727,7 @@ completeness.</p>
        <td>If supported
       <tr>
        <td class="cell-number">8
-       <td><a data-link-type="dfn" href="#focus" id="ref-for-focus①②"><code>focus</code></a>
+       <td><a data-link-type="dfn" href="#focus" id="ref-for-focus①③"><code>focus</code></a>
        <td>Sent after second target element receives focus
       <tr>
        <td class="cell-number">9
@@ -7783,7 +7771,7 @@ completeness.</p>
       <tr>
        <th>Default action
        <td>Varies:
-						launch <a data-link-type="dfn" href="#text-composition-system" id="ref-for-text-composition-system①⑦">text composition system</a>; <a data-link-type="dfn" href="#blur" id="ref-for-blur①①"><code>blur</code></a> and <a data-link-type="dfn" href="#focus" id="ref-for-focus①③"><code>focus</code></a> events; <a data-link-type="dfn" href="#domactivate" id="ref-for-domactivate①⑧"><code>DOMActivate</code></a> event;
+						launch <a data-link-type="dfn" href="#text-composition-system" id="ref-for-text-composition-system①⑦">text composition system</a>; <a data-link-type="dfn" href="#blur" id="ref-for-blur①①"><code>blur</code></a> and <a data-link-type="dfn" href="#focus" id="ref-for-focus①④"><code>focus</code></a> events; <a data-link-type="dfn" href="#domactivate" id="ref-for-domactivate①⑧"><code>DOMActivate</code></a> event;
 						other event
       <tr>
        <th>Context<br>(trusted events)
@@ -8041,7 +8029,7 @@ completeness.</p>
 								previous value of the attribute, if the <code>Attr</code> node has been removed or modified
         </ul>
     </table>
-    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑤⑧">user agent</a> MUST dispatch this event after an <code>Attr.value</code> has been modified and after an <code>Attr</code> node has been added to or removed from an <code>Element</code>. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⓪">event target</a> of this event MUST be
+    <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑤⑧">user agent</a> MUST dispatch this event after an <code>Attr.value</code> has been modified and after an <code>Attr</code> node has been added to or removed from an <code>Element</code>. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target④⑨">event target</a> of this event MUST be
 			the <code>Element</code> node where the change occurred. It is
 			implementation dependent whether this event type occurs when the
 			children of the <code>Attr</code> node are changed in ways that do
@@ -8093,7 +8081,7 @@ completeness.</p>
         </ul>
     </table>
     <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑤⑨">user agent</a> MUST dispatch this event after <code>CharacterData.data</code> or <code>ProcessingInstruction.data</code> have been modified, but the
-			node itself has not been inserted or deleted. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤①">event
+			node itself has not been inserted or deleted. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⓪">event
 			target</a> of this event MUST be the <code>CharacterData</code> node
 			or the <code>ProcessingInstruction</code> node.</p>
     <p class="warning"> The <a data-link-type="dfn" href="#domcharacterdatamodified" id="ref-for-domcharacterdatamodified③"><code>DOMCharacterDataModified</code></a> event type is defined in this
@@ -8145,7 +8133,7 @@ completeness.</p>
     <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑥⓪">user agent</a> MUST dispatch this event type when a node other
 			than an <code>Attr</code> node has been added as a child of another
 			node. A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑥①">user agent</a> MAY dispatch this event when an <code>Attr</code> node has been added to an <code>Element</code> node (see <a href="#DOMNodeInserted-attr">note</a> below). This
-			event MUST be dispatched after the insertion has taken place. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤②">event target</a> of this event MUST be the node being inserted.</p>
+			event MUST be dispatched after the insertion has taken place. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤①">event target</a> of this event MUST be the node being inserted.</p>
     <p class="note" id="DOMNodeInserted-attr" role="note"><a class="self-link" href="#DOMNodeInserted-attr"></a> For detecting attribute insertion, use the <a data-link-type="dfn" href="#domattrmodified" id="ref-for-domattrmodified⑦"><code>DOMAttrModified</code></a> event type instead. </p>
     <p class="warning"> The <a data-link-type="dfn" href="#domnodeinserted" id="ref-for-domnodeinserted①"><code>DOMNodeInserted</code></a> event type is defined in this
 			specification for reference and completeness, but this specification <a data-link-type="dfn" href="#deprecates" id="ref-for-deprecates①②">deprecates</a> the use of this event type. </p>
@@ -8197,7 +8185,7 @@ completeness.</p>
 			inserted into a document, either through direct insertion of the
 			node or insertion of a subtree in which it is contained. A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑥③">user
 			agent</a> MAY  treat an <code>Attr</code> node as part of an <code>Element</code>’s subtree. This event MUST be dispatched after
-			the insertion has taken place. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤③">event target</a> of this event
+			the insertion has taken place. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤②">event target</a> of this event
 			MUST be the node being inserted. If the node is being directly
 			inserted, the event type <a data-link-type="dfn" href="#domnodeinserted" id="ref-for-domnodeinserted②"><code>DOMNodeInserted</code></a> MUST occur before
 			this event type.</p>
@@ -8249,7 +8237,7 @@ completeness.</p>
     </table>
     <p>A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑥④">user agent</a> MUST dispatch this event when a node other than
 			an <code>Attr</code> node is being removed from its parent node. A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑥⑤">user agent</a> MAY dispatch this event when an <code>Attr</code> node is being removed from its <code>ownerElement</code> (see <a href="#DOMNodeRemoved-attr">note</a> below). This event MUST be
-			dispatched before the removal takes place. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤④">event target</a> of this event MUST be the node being removed.</p>
+			dispatched before the removal takes place. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤③">event target</a> of this event MUST be the node being removed.</p>
     <p class="note" id="DOMNodeRemoved-attr" role="note"><a class="self-link" href="#DOMNodeRemoved-attr"></a> For reliably detecting attribute removal, use the <a data-link-type="dfn" href="#domattrmodified" id="ref-for-domattrmodified⑧"><code>DOMAttrModified</code></a> event type instead. </p>
     <p class="warning"> The <a data-link-type="dfn" href="#domnoderemoved" id="ref-for-domnoderemoved①"><code>DOMNodeRemoved</code></a> event type is defined in this
 			specification for reference and completeness, but this specification <a data-link-type="dfn" href="#deprecates" id="ref-for-deprecates①④">deprecates</a> the use of this event type. </p>
@@ -8301,7 +8289,7 @@ completeness.</p>
 			removed from a document, either through direct removal of the node
 			or removal of a subtree in which it is contained. A <a data-link-type="dfn" href="#user-agent" id="ref-for-user-agent⑥⑦">user
 			agent</a> MAY treat an <code>Attr</code> node as part of an <code>Element</code>’s subtree. This event MUST be dispatched before
-			the removal takes place. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑤">event target</a> of this event type
+			the removal takes place. The <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤④">event target</a> of this event type
 			MUST be the node being removed. If the node is being directly
 			removed, the event type <a data-link-type="dfn" href="#domnoderemoved" id="ref-for-domnoderemoved②"><code>DOMNodeRemoved</code></a> MUST occur before this
 			event type.</p>
@@ -8497,7 +8485,7 @@ attempt to embed resources on the local network.</p>
     <h3 class="heading settled" data-level="12.1" id="changes-DOMEvents2to3Changes"><span class="secno">12.1. </span><span class="content">Changes between DOM Level 2 Events and UI Events</span><a class="self-link" href="#changes-DOMEvents2to3Changes"></a></h3>
     <p>Numerous clarifications to the interfaces and event types have been made.
     The <code>HTMLEvents</code> module is no longer defined in this document.
-    The <a data-link-type="dfn" href="#focus" id="ref-for-focus①④"><code>focus</code></a> and <a data-link-type="dfn" href="#blur" id="ref-for-blur①②"><code>blur</code></a> events have been added to the <code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑨⓪">UIEvent</a></code> module, and the <a data-link-type="dfn" href="#dblclick" id="ref-for-dblclick①③"><code>dblclick</code></a> event has been added to the <code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①⑥④">MouseEvent</a></code> module. This new specification provides a better separation between the DOM
+    The <a data-link-type="dfn" href="#focus" id="ref-for-focus①⑤"><code>focus</code></a> and <a data-link-type="dfn" href="#blur" id="ref-for-blur①②"><code>blur</code></a> events have been added to the <code class="idl"><a data-link-type="idl" href="#uievent" id="ref-for-uievent⑨⓪">UIEvent</a></code> module, and the <a data-link-type="dfn" href="#dblclick" id="ref-for-dblclick①③"><code>dblclick</code></a> event has been added to the <code class="idl"><a data-link-type="idl" href="#mouseevent" id="ref-for-mouseevent①⑥④">MouseEvent</a></code> module. This new specification provides a better separation between the DOM
     event flow, the event types, and the DOM interfaces.</p>
     <h4 class="heading settled" data-level="12.1.1" id="changes-DOMEvents2to3Changes-flow"><span class="secno">12.1.1. </span><span class="content">Changes to DOM Level 2 event flow</span><a class="self-link" href="#changes-DOMEvents2to3Changes-flow"></a></h4>
     <p>This new specification introduced the following new concepts in the
@@ -8798,13 +8786,13 @@ descendant of the <a data-link-type="dfn" href="#root-element" id="ref-for-root-
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="bubble phase|bubbling phase" data-noexport id="bubble-phase">bubbling phase</dfn>
      <dd data-md>
       <p>The process by which an <a data-link-type="dfn" href="#event" id="ref-for-event⑥③">event</a> can be handled by one of the target’s
-ancestors <em>after</em> being handled by the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑥">event target</a>. See the
+ancestors <em>after</em> being handled by the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑤">event target</a>. See the
 description of the <a data-link-type="dfn" href="#bubble-phase" id="ref-for-bubble-phase①">bubble phase</a> in the context of event flow for more
 details.</p>
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="capture-phase">capture phase</dfn>
      <dd data-md>
       <p>The process by which an <a data-link-type="dfn" href="#event" id="ref-for-event⑥④">event</a> can be handled by one of the target’s
-ancestors <em>before</em> being handled by the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑦">event target</a>. See the
+ancestors <em>before</em> being handled by the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑥">event target</a>. See the
 description of the <a href="#capture-phase" id="ref-for-capture-phase②">capture phase</a> in the context
 of event flow for more details.</p>
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="character-value">character value</dfn>
@@ -8820,7 +8808,7 @@ use. </p>
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="current-event-target">current event target</dfn>
      <dd data-md>
       <p>In an event flow, the current event target is the object associated with the <a data-link-type="dfn" href="#event-handler" id="ref-for-event-handler">event handler</a> that is currently being dispatched. This object MAY be
-the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑧">event target</a> itself or one of its ancestors. The current event
+the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑦">event target</a> itself or one of its ancestors. The current event
 target changes as the <a data-link-type="dfn" href="#event" id="ref-for-event⑥⑤">event</a> propagates from object to object through
 the various <a data-link-type="dfn" href="#phase" id="ref-for-phase">phases</a> of the event flow. The current event target is the
 value of the <code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-currenttarget" id="ref-for-dom-event-currenttarget①">currentTarget</a></code> attribute.</p>
@@ -8896,13 +8884,13 @@ printing nor control characters).</p>
      <dd data-md>
       <p>An event is the representation of some occurrence (such as a mouse click on
 the presentation of an element, the removal of child node from an element,
-or any number of other possibilities) which is associated with its <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑨">event
+or any number of other possibilities) which is associated with its <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑧">event
 target</a>. Each event is an instantiation of one specific <a data-link-type="dfn" href="#event-type" id="ref-for-event-type②⑤">event
 type</a>.</p>
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="event-focus">event focus</dfn>
      <dd data-md>
       <p>Event focus is a special state of receptivity and concentration on a
-particular element or other <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥⓪">event target</a> within a <a data-link-type="dfn" href="#document" id="ref-for-document⑤">document</a>.  Each
+particular element or other <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑤⑨">event target</a> within a <a data-link-type="dfn" href="#document" id="ref-for-document⑤">document</a>.  Each
 element has different behavior when focused, depending on its functionality,
 such as priming the element for activation (as for a button or hyperlink) or
 toggling state (as for a checkbox), receiving text input (as for a text form
@@ -9013,12 +9001,12 @@ called the namespace name in <a data-link-type="biblio" href="#biblio-xml-names1
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="phase">phase</dfn>
      <dd data-md>
       <p>In the context of <a data-link-type="dfn" href="#event" id="ref-for-event⑥⑧">events</a>, a phase is set of logical traversals from
-node to node along the DOM tree, from the <a data-link-type="dfn" href="#window" id="ref-for-window⑥⓪">Window</a> to the <code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#document" id="ref-for-document⑦">Document</a></code> object, <a data-link-type="dfn" href="#root-element" id="ref-for-root-element⑦">root element</a>, and down to the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥①">event target</a> (<a data-link-type="dfn" href="#capture-phase" id="ref-for-capture-phase①">capture
-phase</a>), at the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥②">event target</a> itself (<a data-link-type="dfn" href="#target-phase" id="ref-for-target-phase①">target phase</a>), and
+node to node along the DOM tree, from the <a data-link-type="dfn" href="#window" id="ref-for-window⑥⓪">Window</a> to the <code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#document" id="ref-for-document⑦">Document</a></code> object, <a data-link-type="dfn" href="#root-element" id="ref-for-root-element⑦">root element</a>, and down to the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥⓪">event target</a> (<a data-link-type="dfn" href="#capture-phase" id="ref-for-capture-phase①">capture
+phase</a>), at the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥①">event target</a> itself (<a data-link-type="dfn" href="#target-phase" id="ref-for-target-phase①">target phase</a>), and
 back up the same chain (<a data-link-type="dfn" href="#bubble-phase" id="ref-for-bubble-phase②">bubbling phase</a>).</p>
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="propagation-path">propagation path</dfn>
      <dd data-md>
-      <p>The ordered set of <a data-link-type="dfn" href="#current-event-target" id="ref-for-current-event-target②">current event targets</a> though which an <a data-link-type="dfn" href="#event" id="ref-for-event⑥⑨">event</a> object will pass sequentially on the way to and back from the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥③">event
+      <p>The ordered set of <a data-link-type="dfn" href="#current-event-target" id="ref-for-current-event-target②">current event targets</a> though which an <a data-link-type="dfn" href="#event" id="ref-for-event⑥⑨">event</a> object will pass sequentially on the way to and back from the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥②">event
 target</a>.  As the event propagates, each <a data-link-type="dfn" href="#current-event-target" id="ref-for-current-event-target③">current event target</a> in
 the propagation path is in turn set as the <code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-event-currenttarget" id="ref-for-dom-event-currenttarget②">currentTarget</a></code>. The
 propagation path is initially composed of one or more <a data-link-type="dfn" href="#event-phase" id="ref-for-event-phase①">event phases</a> as
@@ -9041,7 +9029,7 @@ a wheel, while on others, it MAY be movement along a flat surface, or
 pressure on a particular button.</p>
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="target-phase">target phase</dfn>
      <dd data-md>
-      <p>The process by which an <a data-link-type="dfn" href="#event" id="ref-for-event⑦⓪">event</a> can be handled by the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥④">event
+      <p>The process by which an <a data-link-type="dfn" href="#event" id="ref-for-event⑦⓪">event</a> can be handled by the <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥③">event
 target</a>. See the description of the <a data-link-type="dfn" href="#target-phase" id="ref-for-target-phase②">target phase</a> in the context of
 event flow for more details.</p>
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="text-composition-system">text composition system</dfn>
@@ -9051,7 +9039,7 @@ system) and converts it to text.</p>
      <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="topmost-event-target">topmost event target</dfn>
      <dd data-md>
       <p>The <a data-link-type="dfn" href="#topmost-event-target" id="ref-for-topmost-event-target①③">topmost event target</a> MUST be the element highest in the rendering
-order which is capable of being an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥⑤">event target</a>. In graphical user
+order which is capable of being an <a data-link-type="dfn" href="#event-target" id="ref-for-event-target⑥④">event target</a>. In graphical user
 interfaces this is the element under the user’s pointing device. A user
 interface’s <q>hit testing</q> facility is used to determine the target. For
 specific details regarding hit testing and stacking order, refer to the <a data-link-type="dfn" href="#host-language" id="ref-for-host-language①③">host language</a>.</p>
@@ -10453,10 +10441,10 @@ browsing context’s Window Proxy object as defined in <a href="http://dev.w3.or
    <ul>
     <li><a href="#ref-for-dom-focusevent-relatedtarget">5.2.4.1. blur</a>
     <li><a href="#ref-for-dom-focusevent-relatedtarget①">5.2.4.2. focus</a>
-    <li><a href="#ref-for-dom-focusevent-relatedtarget②">5.2.4.3. focusin</a> <a href="#ref-for-dom-focusevent-relatedtarget③">(2)</a>
-    <li><a href="#ref-for-dom-focusevent-relatedtarget④">5.2.4.4. focusout</a>
-    <li><a href="#ref-for-dom-focusevent-relatedtarget⑤">9.2.1.1. DOMFocusIn</a>
-    <li><a href="#ref-for-dom-focusevent-relatedtarget⑥">9.2.1.2. DOMFocusOut</a>
+    <li><a href="#ref-for-dom-focusevent-relatedtarget②">5.2.4.3. focusin</a>
+    <li><a href="#ref-for-dom-focusevent-relatedtarget③">5.2.4.4. focusout</a>
+    <li><a href="#ref-for-dom-focusevent-relatedtarget④">9.2.1.1. DOMFocusIn</a>
+    <li><a href="#ref-for-dom-focusevent-relatedtarget⑤">9.2.1.2. DOMFocusOut</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dictdef-focuseventinit">
@@ -10478,8 +10466,7 @@ browsing context’s Window Proxy object as defined in <a href="http://dev.w3.or
     <li><a href="#ref-for-blur">4.1. List of Event Types</a> <a href="#ref-for-blur①">(2)</a>
     <li><a href="#ref-for-blur②">5.2.1.2. FocusEventInit</a>
     <li><a href="#ref-for-blur③">5.2.2. Focus Event Order</a>
-    <li><a href="#ref-for-blur④">5.2.4.3. focusin</a>
-    <li><a href="#ref-for-blur⑤">5.2.4.4. focusout</a>
+    <li><a href="#ref-for-blur④">5.2.4.4. focusout</a> <a href="#ref-for-blur⑤">(2)</a>
     <li><a href="#ref-for-blur⑥">5.6.4.1. keydown</a>
     <li><a href="#ref-for-blur⑦">9. Legacy Event Types</a>
     <li><a href="#ref-for-blur⑧">9.2.1.2. DOMFocusOut</a> <a href="#ref-for-blur⑨">(2)</a>
@@ -10495,13 +10482,13 @@ browsing context’s Window Proxy object as defined in <a href="http://dev.w3.or
     <li><a href="#ref-for-focus②">5.2.1.2. FocusEventInit</a>
     <li><a href="#ref-for-focus③">5.2.2. Focus Event Order</a> <a href="#ref-for-focus④">(2)</a>
     <li><a href="#ref-for-focus⑤">5.2.3. Document Focus and Focus Context</a>
-    <li><a href="#ref-for-focus⑥">5.2.4.3. focusin</a>
-    <li><a href="#ref-for-focus⑦">5.6.4.1. keydown</a>
-    <li><a href="#ref-for-focus⑧">9. Legacy Event Types</a>
-    <li><a href="#ref-for-focus⑨">9.2.1.1. DOMFocusIn</a> <a href="#ref-for-focus①⓪">(2)</a>
-    <li><a href="#ref-for-focus①①">9.2.2. Legacy FocusEvent event order</a> <a href="#ref-for-focus①②">(2)</a>
-    <li><a href="#ref-for-focus①③">9.3.1.1. keypress</a>
-    <li><a href="#ref-for-focus①④">12.1. Changes between DOM Level 2 Events and UI Events</a>
+    <li><a href="#ref-for-focus⑥">5.2.4.3. focusin</a> <a href="#ref-for-focus⑦">(2)</a>
+    <li><a href="#ref-for-focus⑧">5.6.4.1. keydown</a>
+    <li><a href="#ref-for-focus⑨">9. Legacy Event Types</a>
+    <li><a href="#ref-for-focus①⓪">9.2.1.1. DOMFocusIn</a> <a href="#ref-for-focus①①">(2)</a>
+    <li><a href="#ref-for-focus①②">9.2.2. Legacy FocusEvent event order</a> <a href="#ref-for-focus①③">(2)</a>
+    <li><a href="#ref-for-focus①④">9.3.1.1. keypress</a>
+    <li><a href="#ref-for-focus①⑤">12.1. Changes between DOM Level 2 Events and UI Events</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="focusin">
@@ -10522,9 +10509,8 @@ browsing context’s Window Proxy object as defined in <a href="http://dev.w3.or
     <li><a href="#ref-for-focusout①">5.2.1.2. FocusEventInit</a>
     <li><a href="#ref-for-focusout②">5.2.2. Focus Event Order</a>
     <li><a href="#ref-for-focusout③">5.2.4.1. blur</a>
-    <li><a href="#ref-for-focusout④">5.2.4.3. focusin</a>
-    <li><a href="#ref-for-focusout⑤">9.2.1.2. DOMFocusOut</a>
-    <li><a href="#ref-for-focusout⑥">9.2.2. Legacy FocusEvent event order</a>
+    <li><a href="#ref-for-focusout④">9.2.1.2. DOMFocusOut</a>
+    <li><a href="#ref-for-focusout⑤">9.2.2. Legacy FocusEvent event order</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="mouseevent">
@@ -12003,30 +11989,30 @@ browsing context’s Window Proxy object as defined in <a href="http://dev.w3.or
     <li><a href="#ref-for-event-target①⓪">5.2.3. Document Focus and Focus Context</a>
     <li><a href="#ref-for-event-target①①">5.2.4.1. blur</a> <a href="#ref-for-event-target①②">(2)</a> <a href="#ref-for-event-target①③">(3)</a>
     <li><a href="#ref-for-event-target①④">5.2.4.2. focus</a> <a href="#ref-for-event-target①⑤">(2)</a> <a href="#ref-for-event-target①⑥">(3)</a>
-    <li><a href="#ref-for-event-target①⑦">5.2.4.3. focusin</a> <a href="#ref-for-event-target①⑧">(2)</a> <a href="#ref-for-event-target①⑨">(3)</a> <a href="#ref-for-event-target②⓪">(4)</a> <a href="#ref-for-event-target②①">(5)</a>
-    <li><a href="#ref-for-event-target②②">5.2.4.4. focusout</a> <a href="#ref-for-event-target②③">(2)</a> <a href="#ref-for-event-target②④">(3)</a> <a href="#ref-for-event-target②⑤">(4)</a>
-    <li><a href="#ref-for-event-target②⑥">5.3.3. Mouse Event Order</a>
-    <li><a href="#ref-for-event-target②⑦">5.3.4.1. auxclick</a> <a href="#ref-for-event-target②⑧">(2)</a>
-    <li><a href="#ref-for-event-target②⑨">5.3.4.2. click</a> <a href="#ref-for-event-target③⓪">(2)</a> <a href="#ref-for-event-target③①">(3)</a>
-    <li><a href="#ref-for-event-target③②">5.3.4.3. dblclick</a> <a href="#ref-for-event-target③③">(2)</a>
-    <li><a href="#ref-for-event-target③④">5.3.4.5. mouseenter</a>
-    <li><a href="#ref-for-event-target③⑤">5.3.4.6. mouseleave</a>
-    <li><a href="#ref-for-event-target③⑥">5.3.4.8. mouseout</a>
-    <li><a href="#ref-for-event-target③⑦">5.3.4.9. mouseover</a> <a href="#ref-for-event-target③⑧">(2)</a>
-    <li><a href="#ref-for-event-target③⑨">5.4.2.1. wheel</a>
-    <li><a href="#ref-for-event-target④⓪">5.5.3.1. beforeinput</a>
-    <li><a href="#ref-for-event-target④①">5.5.3.2. input</a>
-    <li><a href="#ref-for-event-target④②">5.6.3. Keyboard Event Order</a> <a href="#ref-for-event-target④③">(2)</a> <a href="#ref-for-event-target④④">(3)</a>
-    <li><a href="#ref-for-event-target④⑤">9.1.1.1. DOMActivate</a>
-    <li><a href="#ref-for-event-target④⑥">9.2.1.1. DOMFocusIn</a> <a href="#ref-for-event-target④⑦">(2)</a>
-    <li><a href="#ref-for-event-target④⑧">9.2.1.2. DOMFocusOut</a> <a href="#ref-for-event-target④⑨">(2)</a>
-    <li><a href="#ref-for-event-target⑤⓪">9.4.2.1. DOMAttrModified</a>
-    <li><a href="#ref-for-event-target⑤①">9.4.2.2. DOMCharacterDataModified</a>
-    <li><a href="#ref-for-event-target⑤②">9.4.2.3. DOMNodeInserted</a>
-    <li><a href="#ref-for-event-target⑤③">9.4.2.4. DOMNodeInsertedIntoDocument</a>
-    <li><a href="#ref-for-event-target⑤④">9.4.2.5. DOMNodeRemoved</a>
-    <li><a href="#ref-for-event-target⑤⑤">9.4.2.6. DOMNodeRemovedFromDocument</a>
-    <li><a href="#ref-for-event-target⑤⑥">14. Glossary</a> <a href="#ref-for-event-target⑤⑦">(2)</a> <a href="#ref-for-event-target⑤⑧">(3)</a> <a href="#ref-for-event-target⑤⑨">(4)</a> <a href="#ref-for-event-target⑥⓪">(5)</a> <a href="#ref-for-event-target⑥①">(6)</a> <a href="#ref-for-event-target⑥②">(7)</a> <a href="#ref-for-event-target⑥③">(8)</a> <a href="#ref-for-event-target⑥④">(9)</a> <a href="#ref-for-event-target⑥⑤">(10)</a>
+    <li><a href="#ref-for-event-target①⑦">5.2.4.3. focusin</a> <a href="#ref-for-event-target①⑧">(2)</a> <a href="#ref-for-event-target①⑨">(3)</a> <a href="#ref-for-event-target②⓪">(4)</a>
+    <li><a href="#ref-for-event-target②①">5.2.4.4. focusout</a> <a href="#ref-for-event-target②②">(2)</a> <a href="#ref-for-event-target②③">(3)</a> <a href="#ref-for-event-target②④">(4)</a>
+    <li><a href="#ref-for-event-target②⑤">5.3.3. Mouse Event Order</a>
+    <li><a href="#ref-for-event-target②⑥">5.3.4.1. auxclick</a> <a href="#ref-for-event-target②⑦">(2)</a>
+    <li><a href="#ref-for-event-target②⑧">5.3.4.2. click</a> <a href="#ref-for-event-target②⑨">(2)</a> <a href="#ref-for-event-target③⓪">(3)</a>
+    <li><a href="#ref-for-event-target③①">5.3.4.3. dblclick</a> <a href="#ref-for-event-target③②">(2)</a>
+    <li><a href="#ref-for-event-target③③">5.3.4.5. mouseenter</a>
+    <li><a href="#ref-for-event-target③④">5.3.4.6. mouseleave</a>
+    <li><a href="#ref-for-event-target③⑤">5.3.4.8. mouseout</a>
+    <li><a href="#ref-for-event-target③⑥">5.3.4.9. mouseover</a> <a href="#ref-for-event-target③⑦">(2)</a>
+    <li><a href="#ref-for-event-target③⑧">5.4.2.1. wheel</a>
+    <li><a href="#ref-for-event-target③⑨">5.5.3.1. beforeinput</a>
+    <li><a href="#ref-for-event-target④⓪">5.5.3.2. input</a>
+    <li><a href="#ref-for-event-target④①">5.6.3. Keyboard Event Order</a> <a href="#ref-for-event-target④②">(2)</a> <a href="#ref-for-event-target④③">(3)</a>
+    <li><a href="#ref-for-event-target④④">9.1.1.1. DOMActivate</a>
+    <li><a href="#ref-for-event-target④⑤">9.2.1.1. DOMFocusIn</a> <a href="#ref-for-event-target④⑥">(2)</a>
+    <li><a href="#ref-for-event-target④⑦">9.2.1.2. DOMFocusOut</a> <a href="#ref-for-event-target④⑧">(2)</a>
+    <li><a href="#ref-for-event-target④⑨">9.4.2.1. DOMAttrModified</a>
+    <li><a href="#ref-for-event-target⑤⓪">9.4.2.2. DOMCharacterDataModified</a>
+    <li><a href="#ref-for-event-target⑤①">9.4.2.3. DOMNodeInserted</a>
+    <li><a href="#ref-for-event-target⑤②">9.4.2.4. DOMNodeInsertedIntoDocument</a>
+    <li><a href="#ref-for-event-target⑤③">9.4.2.5. DOMNodeRemoved</a>
+    <li><a href="#ref-for-event-target⑤④">9.4.2.6. DOMNodeRemovedFromDocument</a>
+    <li><a href="#ref-for-event-target⑤⑤">14. Glossary</a> <a href="#ref-for-event-target⑤⑥">(2)</a> <a href="#ref-for-event-target⑤⑦">(3)</a> <a href="#ref-for-event-target⑤⑧">(4)</a> <a href="#ref-for-event-target⑤⑨">(5)</a> <a href="#ref-for-event-target⑥⓪">(6)</a> <a href="#ref-for-event-target⑥①">(7)</a> <a href="#ref-for-event-target⑥②">(8)</a> <a href="#ref-for-event-target⑥③">(9)</a> <a href="#ref-for-event-target⑥④">(10)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="event-type">
