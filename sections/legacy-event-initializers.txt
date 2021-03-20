@@ -43,7 +43,7 @@ described in this Appendix.
 		<dl dfn-for="UIEvent">
 			<dt><dfn method>initUIEvent()</dfn></dt>
 			<dd>
-				Initializes attributes of a {{UIEvent}} object.
+				Initializes attributes of an {{UIEvent}} object.
 				This method has the same behavior as {{Event/initEvent()}}.
 
 				<p class="warning">
